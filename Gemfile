@@ -76,6 +76,8 @@ gem 'soap4r-ruby1.9'
 gem 'dalli'
 gem 'kgio'
 
+gem 'algoliasearch'
+
 # Gems useful for development
 group :development do
   gem 'vendorer'

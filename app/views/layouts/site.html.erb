@@ -7,5 +7,6 @@
     <% if defined?(PIWIK) -%>
     <noscript><p><img src="<%= request.protocol %><%= PIWIK['location'] %>/piwik.php?idsite=<%= PIWIK['site'] %>" style="border:0" alt="" /></p></noscript>
     <% end -%>
+    <%= render :partial => "layouts/footer" %>
   </body>
 </html>
