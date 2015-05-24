@@ -93,12 +93,13 @@ namespace :algolia  do
 
     total_records = data.count.to_s
 
-
-      #load_data(file_path).each_slice(10) do |batch|
-      #    puts "Batch no." + batchCounter.to_s
-      #    index.add_objects(batch)
-      #    batchCounter = batchCounter + 1
-      #  end
+    # Not doing in batches because of unstability on my local machine
+    #batchCounter = 0
+    #load_data(file_path).each_slice(10) do |batch|
+    #  puts "Batch no." + batchCounter.to_s
+    #  master_index.add_objects(batch)
+    #  batchCounter = batchCounter + 1
+    #end
 
     data.each do |record|
       str = "Record " + record_counter.to_s + " of " + total_records
@@ -110,6 +111,7 @@ namespace :algolia  do
       record_counter = record_counter + 1
     end
 
-    print api_key
+    puts "All DONE!"
+
   end
 end

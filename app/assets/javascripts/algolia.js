@@ -5,8 +5,7 @@ function MyAlgolia() {
     var defaultMinLength = 2;
     var defaultLimit = 5;
     var defaultShowHighlighted = true;
-
-    var isSearchInProgress = false;
+    var defaultCssClass = 'myalgolia';
 
     var table = '';
     var languageTable = '';
@@ -17,6 +16,7 @@ function MyAlgolia() {
     var config;
     var algoliaClient;
 
+    var isSearchInProgress = false;
     var resultsWrapperSelector = '.myalgolia > div.query-results';
     var lastResultsCount = -1;
 
@@ -26,7 +26,7 @@ function MyAlgolia() {
     }
 
     var initResultsWrapper = function() {
-        $('.myalgolia').append("<div class='query-results'></div>");
+        $('.' + defaultCssClass).append("<div class='query-results'></div>");
         $resultsWrapper = $(resultsWrapperSelector);
         $(this).on('resize', resizeResultsWrapper);
         resizeResultsWrapper();
@@ -71,7 +71,7 @@ function MyAlgolia() {
             log('MyAlgolia: Initiated on ' + config.field);
         }
 
-        $field.wrap("<div class='myalgolia'></div>");
+        $field.wrap("<div class='" + defaultCssClass + "'></div>");
         $field.attr("autocomplete", "off");
 
         initResultsWrapper();
@@ -174,9 +174,9 @@ function MyAlgolia() {
 
     var slideResultsWrapper = function() {
         var el = $resultsWrapper,
-                 curHeight = el.height(),
-                 autoHeight = el.css('height', 'auto').height();
-                 el.height(curHeight).animate({height: autoHeight}, 250);
+            curHeight = el.height(),
+            autoHeight = el.css('height', 'auto').height();
+        el.height(curHeight).animate({height: autoHeight}, 250);
     }
 
     var addNoResults = function() {
@@ -197,19 +197,19 @@ function MyAlgolia() {
             fieldLanguageName = fieldBaseName + ':' + config.language;
 
         if (isHighlighted) {
-          var field = result._highlightResult[fieldLanguageName] || result._highlightResult[fieldBaseName];
-          text = field.value;
+            var field = result._highlightResult[fieldLanguageName] || result._highlightResult[fieldBaseName];
+            text = field.value;
         }
         else {
-          text = result[fieldLanguageName] || result[fieldBaseName];
+            text = result[fieldLanguageName] || result[fieldBaseName];
         }
 
-        var $div = $("<div class='result'></div>");
-        $a = $("<a href='/" + result.type + "/" + result.id + "'></a");
+        var $div = $("<div class='result'></div>"),
+            $a = $("<a href='/" + result.type + "/" + result.id + "'></a"),
+            icon = getIcon(result.type);
 
-        var icon = getIcon(result.type);
         if (icon !== null && icon !== undefined) {
-          $a.append("<i class='fa fa-" + icon + "-o'></i>");
+            $a.append("<i class='fa fa-" + icon + "-o'></i>");
         }
 
         $a.append("<span class='name'>" + text + "</span>");
@@ -228,7 +228,6 @@ function MyAlgolia() {
             }
         }
         $div.append($a);
-
         $resultsWrapper.append($div);
     }
 

@@ -1,8 +1,4 @@
 /* OSM UX customization */
-.map-layout #sidebar {
-
-}
-
 .search_form input[type=text] {
   border: 1px solid #ccc;
   -moz-transition: none;
