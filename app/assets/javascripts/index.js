@@ -340,4 +340,6 @@ $(document).ready(function () {
       center.lat.toFixed(precision) + "," + center.lng.toFixed(precision)
     ));
   });
+
+  window.OSMMap = map;
 });

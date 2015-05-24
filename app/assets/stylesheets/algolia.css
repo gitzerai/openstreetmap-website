@@ -1,0 +1,107 @@
+/* OSM UX customization */
+.map-layout #sidebar {
+
+}
+
+.search_form input[type=text] {
+  border: 1px solid #ccc;
+  -moz-transition: none;
+  -webkit-transition: none;
+  -o-transition: color 0 ease-in;
+  transition: none;
+}
+
+.search_form input[type=submit] {
+  display: none;
+}
+
+.map-layout #sidebar {
+  height: auto;
+}
+
+.search_form input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* MyAlgolia Styling */
+.myalgolia > div.query-results {
+	width: 100%;
+  color: #555;
+	font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+	font-size: 12px;
+  height: 0;
+  display: none;
+}
+
+.myalgolia > div.query-results.show {
+  display: block;
+}
+
+.myalgolia .spinner {
+	background-image: url('/assets/searching.gif');
+	background-repeat:no-repeat;
+	background-position: right center;
+	background-size: contain;
+}
+
+.myalgolia > div.query-results > div.result {
+	padding: 6px;
+  background-color: white;
+
+	border-bottom: 1px solid #f1f1f1;
+	-webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+
+.myalgolia > div.query-results > div.result span.name {
+  padding-right: 12px;
+}
+
+.myalgolia > div.query-results > div.result span.location {
+  color: #BBB;
+  max-width: 235px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.myalgolia > div.query-results > div.result > a > * {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.myalgolia > div.query-results > div.result > a {
+  display: block;
+  text-decoration: none;
+  color: #555;
+}
+
+.myalgolia div.query-results.show {
+  margin-top: 10px;
+}
+
+.myalgolia > div.query-results > div.no-results {
+  padding: 4px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.myalgolia > div.query-results > div.result em {
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: initial;
+}
+
+
+.myalgolia > div.query-results i.fa {
+	padding: 0 8px 0 2px;
+	color: #888;
+}
+
+.myalgolia > div.query-results > div.result:hover {
+	background-color: #dcedd7;
+	cursor: pointer;
+}
